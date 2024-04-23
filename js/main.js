@@ -59,22 +59,29 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
+function playGame() {
+  while (humanScore < 5 && computerScore < 5) {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    console.log("Computer choice: " + computerSelection);
+    console.log("Human choice: " + humanSelection);
+    playRound(humanSelection, computerSelection);
+    console.log("Current score:");
+    console.log("Computer: " + computerScore);
+    console.log("Human:" + humanScore);
+  }
+}
+
+function decideWinner() {
+  if (humanScore >= 5) {
+    console.log("Human wins");
+  } else {
+    console.log("Computer wins");
+  }
+}
+
 let humanScore = 0;
 let computerScore = 0;
 
-while (humanScore < 5 && computerScore < 5) {
-  let humanSelection = getHumanChoice();
-  let computerSelection = getComputerChoice();
-  console.log("Computer choice: " + computerSelection);
-  console.log("Human choice: " + humanSelection);
-  playRound(humanSelection, computerSelection);
-  console.log("Current score:");
-  console.log("Computer: " + computerScore);
-  console.log("Human score:" + humanScore);
-}
-
-if (humanScore >= 5) {
-  console.log("Human wins");
-} else {
-  console.log("Computer wins");
-}
+playGame();
+decideWinner();
