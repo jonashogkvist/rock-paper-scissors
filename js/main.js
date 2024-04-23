@@ -29,32 +29,36 @@ function getHumanChoice() {
   return false;
 }
 
+function computerWin() {
+  console.log("Computer wins");
+  computerScore += 1;
+}
+
+function humanWin() {
+  console.log("Player wins");
+  humanScore += 1;
+}
+
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
     console.log("tie");
   } else if (humanChoice === "rock") {
     if (computerChoice === "scissors") {
-      console.log("Player wins");
-      humanScore += 1;
+      humanWin();
     } else {
-      console.log("Computer wins");
-      computerScore += 1;
+      computerWin();
     }
   } else if (humanChoice === "paper") {
     if (computerChoice === "rock") {
-      console.log("Player wins");
-      humanScore += 1;
+      humanWin();
     } else {
-      console.log("Computer wins");
-      computerScore += 1;
+      computerWin();
     }
   } else if (humanChoice === "scissors") {
     if (computerChoice === "paper") {
-      console.log("Player wins");
-      humanScore += 1;
+      humanWin();
     } else {
-      console.log("Computer wins");
-      computerScore += 1;
+      computerWin();
     }
   }
 }
