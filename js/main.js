@@ -4,7 +4,7 @@ function getRandomNumber(num) {
 
 
 function getComputerChoice() {
-    randomChoice = getRandomNumber(3);
+    let randomChoice = getRandomNumber(3);
     switch (randomChoice) {
         case  1 :
             return "rock";
@@ -15,5 +15,23 @@ function getComputerChoice() {
     };
 }
 
-console.log(getComputerChoice());
 
+function getHumanChoice() {
+    let input = prompt("Choose a move. rock/paper/scissors");
+    if (input === null) {
+        return false
+    } else if (input.toLowerCase() === "rock" || input.toLowerCase() === "paper" || input.toLowerCase() === "scissors") {
+        return input;
+    };
+    return false;
+}
+
+
+console.log(getComputerChoice());
+let humanChoice = getHumanChoice();
+
+while (!humanChoice) {
+    humanChoice = getHumanChoice();
+} 
+
+console.log(humanChoice)
